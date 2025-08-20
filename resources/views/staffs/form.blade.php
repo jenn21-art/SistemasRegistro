@@ -13,9 +13,9 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label class="form-control-label" for="code_staff">Código de personal</label>
-                <input type="number" id="code_staff" name="code_staff"
+                <input type="text" id="code_staff" name="code_staff"
                     class="form-control form-control-alternative" placeholder="Ingresar código de personal"
-                    value="{{ old('code_staff', $staffs->code_student ?? '') }}">
+                    value="{{ old('code_staff', $staffs->code_staff ?? '') }}">
             </div>
         </div>
     </div>
@@ -35,7 +35,7 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label class="form-control-label" for="gender">Genero</label>
-                <input type="number" id="gender" name="gender" class="form-control form-control-alternative"
+                <input type="text" id="gender" name="gender" class="form-control form-control-alternative"
                     placeholder="Ingresar su genero" value="{{ old('gender', $staffs->gender ?? '') }}">
             </div>
         </div>
@@ -45,7 +45,7 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label class="form-control-label" for="telephone">Numero de telefono</label>
-                <input type="date" id="telephone" name="telephone" class="form-control form-control-alternative"
+                <input type="text" id="telephone" name="telephone" class="form-control form-control-alternative"
                     value="{{ old('telephone', $staffs->telephone ?? '') }}">
             </div>
         </div>
@@ -156,10 +156,10 @@
                 <label for="nationality">Nacionalidad</label>
                 <select name="nationality" id="nationality" class="form-control">
                     <option value="" disabled>Seleccione su nacionalidad</option>
-                    <option value="Nicaragüense" {{ old('nationality', $students->nationality ?? '') == 'Nicaragüense' ? 'selected' : '' }}>Nicaragüense</option>
-                    <option value="Costarricense" {{ old('nationality', $students->nationality ?? '') == 'Costarricense' ? 'selected' : '' }}>Costarricense</option>
-                    <option value="Hondureño" {{ old('nationality', $students->nationality ?? '') == 'Hondureño' ? 'selected' : '' }}>Hondureño/a</option>
-                    <option value="Salvadoreño" {{ old('nationality', $students->nationality ?? '') == 'Salvadoreño' ? 'selected' : '' }}>Salvadoreño/a</option>
+                    <option value="Nicaragüense" {{ old('nationality', $staffs->nationality ?? '') == 'Nicaragüense' ? 'selected' : '' }}>Nicaragüense</option>
+                    <option value="Costarricense" {{ old('nationality', $staffs->nationality ?? '') == 'Costarricense' ? 'selected' : '' }}>Costarricense</option>
+                    <option value="Hondureño" {{ old('nationality', $staffs->nationality ?? '') == 'Hondureño' ? 'selected' : '' }}>Hondureño/a</option>
+                    <option value="Salvadoreño" {{ old('nationality', $staffs->nationality ?? '') == 'Salvadoreño' ? 'selected' : '' }}>Salvadoreño/a</option>
                 </select>
             </div>
         </div>

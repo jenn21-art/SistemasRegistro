@@ -74,7 +74,7 @@
                 <div class="col-lg-12">
                     <div class="form-group">
                         <label class="form-control-label" for="telephone">
-                            <i class="fas fa-calendar-check"></i> Numero de telefono
+                            <i class="fas fa-envelope"></i> Numero de telefono
                         </label>
                            <p>{{ $staffs->telephone }}</p>
                     </div>

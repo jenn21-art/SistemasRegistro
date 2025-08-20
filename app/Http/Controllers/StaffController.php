@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Staff;
 use App\Http\Requests\StaffRequest;
+use Illuminate\Validation\Rule;
 
 
 class StaffController extends Controller
