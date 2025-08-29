@@ -2,8 +2,9 @@
 
 namespace App\Http\Requests;
 use Illuminate\Validation\Rule;
-
+use Illuminate\Validation\Rules\Unique;
 use Illuminate\Foundation\Http\FormRequest;
+
 
 class BudgetRequest extends FormRequest
 {
@@ -29,7 +30,6 @@ class BudgetRequest extends FormRequest
             'registration_code'=> ['required', 'string', 'min:5', 'max:20', Rule::unique('budgets')->ignore($this->budget)],
             'customer_name' => 'required|string|min:3|max:100',
             'vehicle_brand' => 'required|string|min:3|max:100',
-            'year' => 'required|date',
             'mileage' => 'required|string|min:1|max:50',
             'model' => 'required|string|min:3|max:100',
             'tuition' => 'required|string|min:1|max:100',
@@ -39,7 +39,7 @@ class BudgetRequest extends FormRequest
             'budget_validity' => 'required|date',
             'delivery_time' => 'required|string|min:3|max:100',
             'total_price' => 'required|string|min:1|max:50',
-            'vehicle_information_id' => 'required',
+            'record_id' => 'required',
 
         ];
     }
@@ -77,9 +77,6 @@ class BudgetRequest extends FormRequest
             'vehicle_brand.string' => 'La marca del vehículo solo debe contener caracteres.',
             'vehicle_brand.min' => 'La marca del vehículo debe tener al menos 3 caracteres.',
             'vehicle_brand.max' => 'La marca del vehículo no debe exceder los 100 caracteres.',
-
-            'year.required' => 'El año es requerido.',
-            'year.date' => 'El año debe ser una fecha válida.',
 
             'mileage.required' => 'El kilometraje es requerido.',
             'mileage.string' => 'El kilometraje solo debe contener caracteres.',
@@ -124,7 +121,7 @@ class BudgetRequest extends FormRequest
             'total_price.min' => 'El precio total debe tener al menos 1 carácter.',
             'total_price.max' => 'El precio total no debe exceder los 50 caracteres.',
 
-            'vehicle_information_id.required' => 'La información del vehículo es requerida.',
+            'record.required' => 'La información del vehículo es requerida.',
         ];
 }
 

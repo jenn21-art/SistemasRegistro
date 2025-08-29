@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Budget extends Model
@@ -9,13 +9,12 @@ class Budget extends Model
     protected $perpage = 10;
 
     protected $fillable = [
-      'workshop_name',
-      'address',
+        'workshop_name',
+        'address',
         'telephone',
         'registration_code',
         'customer_name',
         'vehicle_brand',
-        'year',
         'mileage',
         'model',
         'tuition',
@@ -25,17 +24,12 @@ class Budget extends Model
         'budget_validity',
         'delivery_time',
         'total_price',
-        'vehicle_information_id',
+        'record_id',
 
     ];
 
-    public function Vehicle_information()
+    public function Record()
     {
-        return $this->belongsTo(Vehicle_information::class, 'vehicle_information_id');
-    }
-
-    public function Vehicle_informations()
-    {
-        return $this->hasMany(Vehicle_information::class);
+        return $this->belongsTo(record::class);
     }
 }

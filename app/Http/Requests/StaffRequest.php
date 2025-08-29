@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Requests;
-
-
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Unique;
+
 
 
 
@@ -28,12 +27,12 @@ class StaffRequest extends FormRequest
     {
         return [
             'full_name' => 'required|string|min:5|max:100',
-            'code_staff'=> ['required','string','min:5','max:20',Rule::unique('staff')->ignore($this->staff)],
+            'code_staff'=> ['required','string','min:5','max:20', Rule::unique('staffs')->ignore($this->staff)],
             'position_company'=> 'required|string|min:3|max:100',
             'gender' => 'required|string|min:3|max:10',
             'telephone' => 'required|string|min:8|max:16',
-            'identification' => ['required', 'string', 'min:5', 'max:20', Rule::unique('staff')->ignore($this->staff)],
-            'birthday_date' => 'required|date',
+            'identification' => ['required', 'string', 'min:5', 'max:20', Rule::unique('staffs')->ignore($this->staff)],
+            'birthday_date' => 'required',
             'age' => 'required|string|max:3',
             'academic_level' => 'required|string|min:5|max:100',
             'address' => 'required|string|min:5|max:255',
@@ -82,7 +81,7 @@ class StaffRequest extends FormRequest
             'identification.unique' => 'La identificación ya está en uso.',
 
             'birthday_date.required' => 'La fecha de nacimiento es requerida.',
-            'birthday_date.date' => 'La fecha de nacimiento debe ser una fecha válida.',
+            'birthday_date.string' => 'La fecha de nacimiento debe contener solo caracteres.',
 
             'age.required' => 'La edad es requerida.',
             'age.string' => 'La edad solo debe contener caracteres.',

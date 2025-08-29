@@ -88,7 +88,76 @@
          <li class="nav-item {{ Request::route()->named('staffs.index') ? 'active' : '' }}">
             <a class="nav-link {{ Request::route()->named('staffs.index') ? 'active' : '' }}"
                 href="{{ route('staffs.index') }}" wire:navigate>
-                <i class="fas fa-dove text-orange"></i> Staf
+                <i class="fas fa-dove text-orange"></i> Staff
+            </a>
+        </li>
+
+        <li class="nav-item {{ Request::route()->named('budgets.index') ? 'active' : '' }}">
+            <a class="nav-link {{ Request::route()->named('budgets.index') ? 'active' : '' }}"
+                href="{{ route('budgets.index') }}" wire:navigate>
+                <i class="fas fa-dove text-orange"></i> Budget
+            </a>
+        </li>
+
+        <li class="nav-item {{ Request::route()->named('customer_informations.index') ? 'active' : '' }}">
+            <a class="nav-link {{ Request::route()->named('customer_informations.index') ? 'active' : '' }}"
+                href="{{ route('customer_informations.index') }}" wire:navigate>
+                <i class="fas fa-dove text-orange"></i> Customer_information
+            </a>
+        </li>
+
+         <li class="nav-item {{ Request::route()->named('inventories.index') ? 'active' : '' }}">
+            <a class="nav-link {{ Request::route()->named('inventories.index') ? 'active' : '' }}"
+                href="{{ route('inventories.index') }}" wire:navigate>
+                <i class="fas fa-dove text-orange"></i> Inventory
+            </a>
+        </li>
+
+   
+         <li class="nav-item {{ Request::route()->named('repairs.index') ? 'active' : '' }}">
+            <a class="nav-link {{ Request::route()->named('repairs.index') ? 'active' : '' }}"
+                href="{{ route('repairs.index') }}" wire:navigate>
+                <i class="fas fa-dove text-orange"></i> repair
+            </a>
+        </li>
+
+          <li class="nav-item {{ Request::route()->named('invoices.index') ? 'active' : '' }}">
+            <a class="nav-link {{ Request::route()->named('invoices.index') ? 'active' : '' }}"
+                href="{{ route('invoices.index') }}" wire:navigate>
+                <i class="fas fa-dove text-orange"></i> invoice
+            </a>
+        </li>
+          <li class="nav-item {{ Request::route()->named('tools.index') ? 'active' : '' }}">
+            <a class="nav-link {{ Request::route()->named('tools.index') ? 'active' : '' }}"
+                href="{{ route('tools.index') }}" wire:navigate>
+                <i class="fas fa-dove text-orange"></i> tool
+            </a>
+        </li>
+        <li class="nav-item {{ Request::route()->named('corrective_maintenances.index') ? 'active' : '' }}">
+            <a class="nav-link {{ Request::route()->named('corrective_maintenances.index') ? 'active' : '' }}"
+                href="{{ route('corrective_maintenances.index') }}" wire:navigate>
+                <i class="fas fa-dove text-orange"></i> corrective_maintenance
+            </a>
+        </li>
+
+        <li class="nav-item {{ Request::route()->named('mechanical_histories.index') ? 'active' : '' }}">
+            <a class="nav-link {{ Request::route()->named('mechanical_histories.index') ? 'active' : '' }}"
+                href="{{ route('mechanical_histories.index') }}" wire:navigate>
+                <i class="fas fa-dove text-orange"></i> mechanical_history
+            </a>
+        </li>
+
+        
+        <li class="nav-item {{ Request::route()->named('mechanical_reports.index') ? 'active' : '' }}">
+            <a class="nav-link {{ Request::route()->named('mechanical_reports.index') ? 'active' : '' }}"
+                href="{{ route('mechanical_reports.index') }}" wire:navigate>
+                <i class="fas fa-dove text-orange"></i> mechanical_report
+            </a>
+        </li>
+          <li class="nav-item {{ Request::route()->named('records.index') ? 'active' : '' }}">
+            <a class="nav-link {{ Request::route()->named('records.index') ? 'active' : '' }}"
+                href="{{ route('records.index') }}" wire:navigate>
+                <i class="fas fa-dove text-orange"></i> record
             </a>
         </li>
     </ul>

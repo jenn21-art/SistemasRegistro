@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 
 class Invoice extends Model
 {
@@ -22,18 +24,18 @@ class Invoice extends Model
         'repair_id'
     ];
 
-    public function Corrective_maintenance() 
+    public function corrective_maintenance() 
     {
-        return $this->belongsTo(Corrective_maintenance::class, 'vehicle_information_id');
+        return $this->belongsTo(Corrective_maintenance::class);
     }
 
-    public function Repair() 
+    public function repair() 
     {
-        return $this->belongsTo(Repair::class, 'repair_id');
+        return $this->belongsTo(Repair::class);
     }
 
-    public function Records() 
+    public function records() 
        {
-        return $this->hasMany(related: Record::class);
+        return $this->hasMany( Record::class);
        }
 }

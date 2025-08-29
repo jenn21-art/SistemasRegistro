@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 
 class Customer_information extends Model
 {
@@ -18,12 +20,12 @@ class Customer_information extends Model
         'telephone',
         'gender'
 ];
-    public function Records() 
+    public function records() 
      {
-        return $this->hasMany(related: Record::class);
+        return $this->hasMany(Record::class);
        }
 
-       public function Mechanical_histories() 
+       public function mechanical_histories() 
        {
         return $this->hasMany(Mechanical_history::class);
        }

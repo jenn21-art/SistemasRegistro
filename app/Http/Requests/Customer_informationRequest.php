@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
+
 class Customer_informationRequest extends FormRequest
 {
     /**
@@ -29,7 +30,8 @@ class Customer_informationRequest extends FormRequest
             'tuition' => 'required|string|min:1|max:100',
             'identification' => ['required', 'string', 'min:5', 'max:20', Rule::unique('customer_informations')->ignore($this->customer_information)],
             'address' => 'required|string|min:5|max:255',
-            'telephone' => ['required', 'string', 'min:8', 'max:16', Rule::unique('customer_informations')->ignore($this->customer_information)]
+            'telephone' => ['required', 'string', 'min:8', 'max:16', Rule::unique('customer_informations')->ignore($this->customer_information)],
+            'gender' => 'required|string|min:3|max:10',
         ];
     }
 
@@ -67,6 +69,11 @@ class Customer_informationRequest extends FormRequest
             'address.string' => 'La dirección solo debe contener caracteres.',
             'address.min' => 'La dirección debe tener al menos 5 caracteres.',
             'address.max' => 'La dirección no debe exceder los 255 caracteres.',
+
+            'gender.required' => 'El género es requerido.',
+            'gender.string' => 'El género solo debe contener caracteres.',
+            'gender.min' => 'El género debe tener al menos 3 caracteres.',
+            'gender.max' => 'El género no debe exceder los 10 caracteres.', 
 
    
         ];

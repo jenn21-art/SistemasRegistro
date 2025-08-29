@@ -90,7 +90,7 @@ class InvoiceRequest extends FormRequest
             'total.min' => 'El total debe tener al menos 1 carácter.',
             'total.max' => 'El total no debe exceder los 50 caracteres.',
 
-            'corrective_maintenance_id.required' => 'El ID de mantenimiento correctivo es requerido.',
+            'corrective_maintenance_id.required' => 'El nombre de mantenimiento correctivo es requerido.',
             'repair_id.required' => 'El ID de reparación es requerido.',
         ];
 

@@ -16,13 +16,8 @@ class Tool extends Model
         'entry_date',
         'code',
         'who_receives',
-        'inventory_id'
     ];
-    public function Inventory() 
-     {
-        return $this->belongsTo(related: Inventory::class, foreignKey: 'inventory_id');
-       }
-
+ 
        public function Inventories() 
        {
         return $this->hasMany(Inventory::class);

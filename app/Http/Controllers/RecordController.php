@@ -6,9 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Record;
 use App\Http\Requests\RecordRequest;  
 use App\Models\Inventory;
-use App\Models\Invoice;
 use App\Models\Customer_information;
-use App\Models\Vehicle_information;  
 
 class RecordController extends Controller
 {
@@ -17,7 +15,7 @@ class RecordController extends Controller
      */
     public function index()
     {
-        $records = Record::with('inventory','invoice','customer_information','vehicle_information')->paginate(10);
+        $records = Record::with('inventory','customer_information')->paginate(10);
         return view('records.index', compact('records'));   
     }
 
@@ -28,16 +26,14 @@ class RecordController extends Controller
     {
         $records = new Record();
         $inventories = Inventory::all();
-        $invoices = Invoice::all();
-        $customers = Customer_information::all();
-        $vehicle_informations = Vehicle_information::all();
-        return view('records.create', compact('records', 'inventories', 'invoices', 'customers', 'vehicle_informations'));
+        $customers_informations = Customer_information::all();
+        return view('records.create', compact('records', 'inventories', 'customers_informations'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(RecordRequest $request)
     {
         Record::create($request->validated());
         return redirect()->route('records.index')->with('success', 'Registro creado');
@@ -49,6 +45,8 @@ class RecordController extends Controller
     public function show(string $id)
     {
         $records = Record::find($id);
+        $inventories = Inventory::all();
+        $customers_informations = Customer_information::all();
         return view('records.show', compact('records'));
     }
 
@@ -59,16 +57,14 @@ class RecordController extends Controller
     {
         $records = Record::find($id);
         $inventories = Inventory::all();
-        $invoices = Invoice::all();
-        $customers = Customer_information::all();
-        $vehicle_informations = Vehicle_information::all();
-        return view('records.edit', compact('record', 'records', 'inventories', 'invoices', 'customers', 'vehicle_informations'));
+        $customer_informations = Customer_information::all();
+        return view('records.edit', compact('records',  'inventories','customer_informations'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(RecordRequest $request, string $id)
     {
         $records = Record::find($id);
         $records->update($request->validated());

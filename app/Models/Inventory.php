@@ -17,19 +17,20 @@ class Inventory extends Model
     'spare_parts',
     'materials',
     'equipment',
-    'amount'
+    'amount',
+    'tool_id'
 
 ];
 
 
-    public function Tools() 
+    public function tool() 
      {
-        return $this->hasMany(tool::class);
+        return $this->belongsTo(Tool::class);
        }
 
-       public function Records() 
+       public function records() 
        {
-        return $this->hasMany(related: Record::class);
+        return $this->hasMany( Record::class);
        }
 
 }

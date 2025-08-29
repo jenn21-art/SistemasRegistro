@@ -37,16 +37,7 @@
                 </div>
           </div>  
   </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="form-group">
-                        <label class="form-control-label" for="code_staff">
-                            <i class="fas fa-envelope"></i> codigo del Personal
-                        </label>
-                           <p>{{ $staffs->code_staff }}</p>
-                    </div>
-                </div>
-            </div>
+            
 
             <div class="row">
                 <div class="col-lg-12">

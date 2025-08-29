@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 use Illuminate\Validation\Rule;
-
 use Illuminate\Foundation\Http\FormRequest;
 
 class RepairRequest extends FormRequest
@@ -27,7 +26,6 @@ class RepairRequest extends FormRequest
             'telephone'=> 'required|string|min:8|max:16',
             'vehicle_brand'=> 'required|string|min:3|max:100',
             'tuition'=> 'required|string|min:1|max:100',
-            'repair_date'=> 'required|date',
             'unit_price'=> 'required|string|min:1|max:50',
             'type_repair'=> 'required|string|min:3|max:100',
             'total'=> 'required|string|min:1|max:50',
@@ -58,9 +56,6 @@ class RepairRequest extends FormRequest
             'tuition.min' => 'La matrícula debe tener al menos 1 carácter.',
             'tuition.max' => 'La matrícula no debe exceder los 100 caracteres.',
 
-            'repair_date.required' => 'La fecha de reparación es requerida.',
-            'repair_date.date' => 'La fecha de reparación no es una fecha válida.',
-
             'unit_price.required' => 'El precio unitario es requerido.',
             'unit_price.string' => 'El precio unitario solo debe contener caracteres.',
             'unit_price.min' => 'El precio unitario debe tener al menos 1 carácter.',
@@ -76,7 +71,7 @@ class RepairRequest extends FormRequest
             'total.min' => 'El total debe tener al menos 1 carácter.',
             'total.max' => 'El total no debe exceder los 50 caracteres.',
 
-            'staff_id.required' => 'El ID del personal es requerido.',
+            'staff_id.required' => 'El Nombre del personal es requerido.',
         ];
 
     }

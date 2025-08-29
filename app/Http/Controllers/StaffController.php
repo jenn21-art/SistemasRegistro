@@ -13,13 +13,12 @@ class StaffController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $staffs = Staff::latest()->paginate(10);
-        return view('staffs.index',compact('staffs'));
-    
-    }
-    
+  public function index()
+{
+    $staffs = Staff::latest()->paginate(10);
+    return view('staffs.index', compact('staffs'));
+}
+
 
     /**
      * Show the form for creating a new resource.

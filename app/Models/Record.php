@@ -19,38 +19,26 @@ class Record extends Model
         'type_service',
         'who_register',
         'inventory_id',
-        'invoice_id',
         'customer_information_id',
-        'vehicle_information_id',
     ];
 
-    public function Inventory() 
+    public function inventory() 
      {
-        return $this->belongsTo(related: Inventory::class, foreignKey: 'inventory_id');
+          return $this->belongsTo(Inventory::class);
        }
 
-       public function Invoice() 
+       public function customer_information() 
        {
-        return $this->belongsTo(related: Invoice::class, foreignKey: 'invoice_id');
+        return $this->belongsTo(related: Customer_information::class);
        }
 
-       public function Customer_information() 
-       {
-        return $this->belongsTo(related: Customer_information::class, foreignKey: 'customer_information_id');
-       }
-
-       public function Vehicle_information() 
-       {
-        return $this->belongsTo(related: Vehicle_information::class, foreignKey: 'vehicle_information_id');
-       }
-
-         public function Mechanical_history() 
+         public function mechanical_history() 
          {
           return $this->hasMany(mechanical_history::class);
          }
 
          
-         public function Mechanical_report() 
+         public function mechanical_report() 
          {
           return $this->hasMany(mechanical_report::class);
          }

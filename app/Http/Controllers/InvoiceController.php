@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Invoice;
-use App\Http\Requests\InvoiceRequest;
+use App\Models\Corrective_maintenance;
 use App\Models\Repair;
+use App\Http\Requests\InvoiceRequest;
+use App\Http\Requests\Corrective_maintenanceRequest;
+
+
 
 
 class InvoiceController extends Controller
@@ -15,7 +19,7 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        $invoices = Invoice::with('repair')->paginate(10);
+        $invoices = Invoice::with('repair','corrective_maintenance')->paginate(10);
         return view('invoices.index', compact('invoices'));
     }
 
@@ -26,13 +30,14 @@ class InvoiceController extends Controller
     {
         $invoices = new Invoice();
         $repairs = Repair::all(); 
-        return view('invoices.create', compact('invoices'));
+        $corrective_maintenances = Corrective_maintenance::all();
+        return view('invoices.create', compact('invoices','repairs','corrective_maintenances'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(InvoiceRequest $request)
     {
         Invoice::create($request->validated());
         return redirect()->route('invoices.index')->with('success', 'Factura creada');
@@ -44,23 +49,28 @@ class InvoiceController extends Controller
     public function show(string $id)
     {
         $invoices = Invoice::find($id);
-        return view('invoice.show', compact('invoices'));
+        $repairs = Repair::all();
+        $corrective_maintenances = Corrective_maintenance::all();
+        return view('invoices.show', compact('invoices','repairs','corrective_maintenances'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        $invoices = Invoice::find($id);
-        $repairs = Repair::all();
-        return view('invoices.edit', compact('invoice', 'invoices', 'repairs'));
-    }
+   public function edit(string $id)
+{
+    $invoices = Invoice::findOrFail($id);
+    $repairs = Repair::all();
+    $corrective_maintenances = Corrective_maintenance::all();
+
+    return view('invoices.edit', compact('invoices','repairs','corrective_maintenances'));
+}
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(InvoiceRequest $request, string $id)
     {
         $invoices = Invoice::find($id);
         $invoices->update($request->validated());

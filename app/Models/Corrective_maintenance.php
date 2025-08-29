@@ -19,14 +19,14 @@ class Corrective_maintenance extends Model
         'staff_id'
     ];
 
-    public function Staff() 
+    public function staff() 
      {
-        return $this->belongsTo(related: Staff::class, foreignKey: 'staff_id');
+        return $this->belongsTo( Staff::class);
        }
 
-       public function Invoices() 
+       public function invoices() 
        {
-        return $this->hasMany(related: Invoice::class);
+        return $this->hasMany( Invoice::class);
        }
 
 }

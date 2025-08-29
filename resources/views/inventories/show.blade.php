@@ -1,5 +1,5 @@
 @extends('layouts.panel')
-@section('title','inventory/Show')
+@section('title','Inventory/Show')
 
 @section('content')
 
@@ -125,6 +125,20 @@
                     </div>
                 </div>
             </div>
+
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label class="form-control-label" for="tool">
+                            <i class="fas fa-envelope"></i> Herraienta
+                        </label>
+                           <p>{{ $inventories->tool }}</p>
+                    </div>
+                </div>
+            </div>
+
+
 
 
          

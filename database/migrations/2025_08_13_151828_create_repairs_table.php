@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('repairs', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('customer_name');
+            $table->string('telephone');
+            $table->string('vehicle_brand');
+            $table->string('tuition');
+            $table->string('unit_price');
+            $table->string('type_repair');
+            $table->string('total');
+
+            $table->integer('staff_id')->unsigned();
+            $table->foreign('staff_id')->references('id')->on('staffs')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('repairs');
+    }
+};

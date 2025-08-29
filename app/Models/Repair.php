@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Repair extends Model
@@ -14,9 +14,6 @@ class Repair extends Model
         'telephone',
         'vehicle_brand',
         'tuition',
-        'repair_date',
-        'faults_found',
-        'repair_date',
         'unit_price',
         'type_repair',
         'total',
@@ -26,7 +23,7 @@ class Repair extends Model
 
     public function Staff() 
      {
-        return $this->belongsTo(related: Staff::class, foreignKey: 'staff_id');
+        return $this->belongsTo(Staff::class, foreignKey: 'staff_id');
        }
 
        public function Invoices() 

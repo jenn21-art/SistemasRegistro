@@ -4,7 +4,7 @@
             <div class="form-group">
                 <label class="form-control-label" for="full_name">Nombre completo</label>
                 <input type="text" id="full_name" name="full_name" class="form-control form-control-alternative"
-                    placeholder="Ingresar nombre del personal" value="{{ old('full_name', $staffs->name ?? '') }}">
+                    placeholder="Ingresar nombre del personal" value="{{ old('full_name', $staffs->full_name ?? '') }}">
             </div>
         </div>
     </div>
@@ -46,6 +46,7 @@
             <div class="form-group">
                 <label class="form-control-label" for="telephone">Numero de telefono</label>
                 <input type="text" id="telephone" name="telephone" class="form-control form-control-alternative"
+                  placeholder="Numero de Telefono"
                     value="{{ old('telephone', $staffs->telephone ?? '') }}">
             </div>
         </div>

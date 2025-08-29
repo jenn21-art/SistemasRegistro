@@ -25,13 +25,14 @@ class InventoryRequest extends FormRequest
         return [
             'name' => 'required|string|min:3|max:100',
             'date' => 'required|date',
-            'code' => ['required','string','min;5','max:20',Rule::unique('inventories')->ignore($this->inventory)],
+            'code' => ['required','string','min:5','max:20',Rule::unique('inventories')->ignore($this->inventory)],
             'description' => 'required|string|min:5|max:255',
             'tools' => 'required|string|min:3|max:255',
             'spare_parts' => 'required|string|min:3|max:255',
             'materials' => 'required|string|min:3|max:255',
             'equipment' => 'required|string|min:3|max:255',
             'amount' => 'required|string|min:1|max:255',
+            'tool_id'=> 'required'
         ];
     }
 
@@ -81,6 +82,8 @@ class InventoryRequest extends FormRequest
             'amount.string' => 'La cantidad solo debe contener caracteres.',
             'amount.min' => 'La cantidad debe tener al menos 1 carácter.',
             'amount.max' => 'La cantidad no debe exceder los 255 caracteres.',
+
+            'tool_id.required'=>'La Herramienta es requerida.',
 
 
          ];

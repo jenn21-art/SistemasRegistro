@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\Customer_InformationControllers;
 use Illuminate\Http\Request;
 use App\Models\Customer_Information;
-use App\Http\Requests\CustomerInformationRequest;   
+use App\Http\Requests\Customer_InformationRequest;   
 
 class Customer_informationController extends Controller
 {
@@ -13,8 +13,8 @@ class Customer_informationController extends Controller
      */
     public function index()
     {
-        $customer_Informations = Customer_Information::latest()->paginate(10);
-        return view('customer_informations.index', compact('customer_Informations'));
+        $customer_informations = Customer_Information::latest()->paginate(10);
+        return view('customer_informations.index', compact('customer_informations'));
     }
 
     /**
@@ -22,14 +22,14 @@ class Customer_informationController extends Controller
      */
     public function create()
     {
-        $customer_Informations = new Customer_Information();
-        return view('customer_informations.create', compact('customer_Informations'));
+        $customer_informations = new Customer_Information();
+        return view('customer_informations.create', compact('customer_informations'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Customer_informationRequest $request)
     {
         Customer_Information::create($request->validated());
         return redirect()->route('customer_informations.index')->with('success', 'Información del cliente creada');
@@ -40,8 +40,8 @@ class Customer_informationController extends Controller
      */
     public function show(string $id)
     {
-        $customer_Informations = Customer_Information::find($id);
-        return view('customer_informations.show', compact('customer_Informations'));
+        $customer_informations = Customer_Information::find($id);
+        return view('customer_informations.show', compact('customer_informations'));
     }
 
     /**
@@ -49,17 +49,17 @@ class Customer_informationController extends Controller
      */
     public function edit(string $id)
     {
-        $customer_Informations = Customer_Information::find($id);
-        return view('customer_informations.edit', compact('customer_Informations'));
+        $customer_informations = Customer_Information::find($id);
+        return view('customer_informations.edit', compact('customer_informations'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Customer_informationRequest $request, string $id)
     {
-        $customer_Informations = Customer_Information::find($id);
-        $customer_Informations->update($request->validated());
+        $customer_informations = Customer_Information::find($id);
+        $customer_informations->update($request->validated());
         return redirect()->route('customer_informations.index')->with('success', 'Información del cliente actualizada');
     }
 
@@ -68,8 +68,8 @@ class Customer_informationController extends Controller
      */
     public function destroy(string $id)
     {
-        $customer_Informations = Customer_Information::find($id);
-        $customer_Informations->delete();
+        $customer_informations = Customer_Information::find($id);
+        $customer_informations->delete();
         return redirect()->route('customer_informations.index')->with('success', 'Información del cliente eliminada correctamente');
     }
 }

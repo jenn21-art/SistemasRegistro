@@ -33,9 +33,7 @@ class RecordRequest extends FormRequest
             'type_service'=> 'required|string|min:3|max:100',
             'who_register'=> 'required|string|min:3|max:100',
             'inventory_id'=> 'required',
-            'invoice_id'=> 'required',
             'customer_information_id'=> 'required',
-            'vehicle_information_id'=> 'required',
 
         ];
     }
@@ -82,9 +80,8 @@ class RecordRequest extends FormRequest
             'who_register.max' => 'Quien registra no debe exceder los 100 caracteres.',
 
             'inventory_id.required' => 'El nombre de inventario es requerido.',
-            'invoice_id.required' => 'El ID de la factura es requerido.',
+       
             'customer_information_id.required' => 'El ID de la información del cliente es requerido.',
-            'vehicle_information_id.required' => 'El ID de la información del vehículo es requerido.',  
         
         ];
     }

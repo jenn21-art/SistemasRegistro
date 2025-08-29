@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Inventory;
 use App\Http\Requests\InventoryRequest;
+use App\Models\Tool;
 
 class InventoryController extends Controller
 {
@@ -13,9 +14,8 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        
-          $inventories = Inventory::latest()->paginate(10);
-       return view('inventories.index',compact('inventories'));
+        $inventories = Inventory::with('tool')->paginate(10);
+        return view('inventories.index', compact('inventories'));
     
     }
 
@@ -24,17 +24,20 @@ class InventoryController extends Controller
      */
     public function create()
     {
-            $inventories = new Inventory();
-            return view('inventories.create', compact('inventories'));
+        $inventories = new Inventory();
+        $tools = Tool::all();
+        return view('inventories.create', compact('tools','inventories'));
+
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(InventoryRequest $request)
     {
-        Inventory::create($request->validated());
-        return redirect()->route('inventories.index')->with('success', 'Inventario creado');
+         Inventory::create($request->validated());
+        return redirect()->route('inventories.index')->with('success','Inventario creado');
+    
     }
 
     /**
@@ -42,8 +45,8 @@ class InventoryController extends Controller
      */
     public function show(string $id)
     {
-        $inventories = Inventory::find($id);
-        return view('inventories.show', compact('inventories'));
+            $inventories = Inventory::find($id);
+        return view('inventory.show', compact('inventories'));
     }
 
     /**
@@ -52,17 +55,20 @@ class InventoryController extends Controller
     public function edit(string $id)
     {
         $inventories = Inventory::find($id);
-        return view('inventories.edit', compact('inventories'));
+        $tools =  Tool::all();
+        return view('inventories.edit',compact('inventories','tools'));
+    
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(InventoryRequest $request, string $id)
     {
         $inventories = Inventory::find($id);
         $inventories->update($request->validated());
-        return redirect()->route('inventories.index')->with('updated', 'Inventario actualizado con éxito');
+        return redirect()->route('inventories.index')->with('update','Inventario actualizado');
+    
     }
 
     /**
@@ -70,8 +76,8 @@ class InventoryController extends Controller
      */
     public function destroy(string $id)
     {
-        $inventories = Inventory::find($id);
-        $inventories->delete();
-        return redirect()->route('inventories.index')->with('deleted', 'Inventario eliminado correctamente');
+       $inventories = Inventory::find($id);
+       $inventories->delete();
+       return redirect()->route('inventories.index')->with('delete','Inventario eliminado');
     }
 }

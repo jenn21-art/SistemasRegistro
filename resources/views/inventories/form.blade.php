@@ -13,7 +13,7 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label class="form-control-label" for="date">fecha</label>
-                <input type="text" id="date" name="date"
+                <input type="date" id="date" name="date"
                     class="form-control form-control-alternative" placeholder="Ingresar fecha"
                     value="{{ old('date', $inventories->date ?? '') }}">
             </div>
@@ -89,6 +89,25 @@
             </div>
         </div>
     </div>
+
+    
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group-label" for="tool_id">
+               <i class="fas fa-graduation-cap"></i> herramientas
+               <label>
+                 <select name="tool_id" id="tool_id" class="form-control form-control-alternative">
+                    <option disabled selected>seleccionar</option>
+                    @foreach($tools as $tool)
+                    <option value="{{$tool->id}}"
+                    @selected ( old('tool', $inventories->tool_id ?? '')== $tool->id)>
+                    {{$tool->name}}</option>
+                    @endforeach
+              </select>
+         </div>
+      </div>
+  </div>
+
 
 
 <hr class="my-4" />

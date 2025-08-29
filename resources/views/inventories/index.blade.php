@@ -26,6 +26,8 @@
                             <th scope="col">materiales</th>
                             <th scope="col">equipo</th>
                             <th scope="col">cantidad</th>
+                            <th scope="col">Herramientas</th>
+
                         
                         </tr>
                     </thead>
@@ -40,19 +42,21 @@
                               <td>{{$inventory->spare_parts}}</td>
                               <td>{{$inventory->materials}}</td>
                               <td>{{$inventory->equipment}}</td>
-                             <td>{{$inventory->amount}}</td>
+                              <td>{{$inventory->amount}}</td>
+                              <td>{{$inventory->tool->name}}</td>
+
                              
 
                               <td style="white-space: nowrap; display: flex; align-items: center;">
-                                  <a href="{{ route ('customer_informations.show', $inventory->id) }}" class="btn btn-primary btn-sm" style"margin-right: 5px;">
+                                  <a href="{{ route ('inventories.show', $inventory->id) }}" class="btn btn-primary btn-sm" style"margin-right: 5px;">
                                       <i clas="fas fa-eye"></i> Mostrar
                                   </a>
-                                  <a href="{{ route('customer_informations.edit', $inventory->id) }}" class="btn btn-info btn-sm" style="margin-right: 5px;">
+                                  <a href="{{ route('inventories.edit', $inventory->id) }}" class="btn btn-info btn-sm" style="margin-right: 5px;">
                                       <i class="fas fa-eye"></i> Editar
                                   </a>
-                                  <form action={{ route('customer_informations.destroy', $inventory->id) }}" method="POST"
+                                  <form action={{ route('inventories.destroy', $inventory->id) }}" method="POST"
                                       style="display: inline-block; margin: 0; display: flex; align-items: center;"
-                                      onsubmit="return confirm('Seguro de querer eliminar este Personal? Esta accion no es reversible.')">
+                                      onsubmit="return confirm('Seguro de querer eliminar esto? Esta accion no es reversible.')">
                                       @csrf
                                       @method('delete')
                                       <button type="submit" class="btn btn-danger btn-sm">

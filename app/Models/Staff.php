@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Corrective_maintenance;
 use App\Models\Repair;
@@ -9,6 +9,7 @@ use App\Models\Repair;
 
 class Staff extends Model
 {
+    protected $table = 'staffs';
        protected $perpage = 10;
     protected $fillable = [
         'full_name',
@@ -27,7 +28,7 @@ class Staff extends Model
         'nationality'
     ];
 
-    public function Corrective_maintenances() 
+    public function Corrective_maintenance() 
      {
         return $this->hasMany(Corrective_maintenance::class);
        }

@@ -9,10 +9,32 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CarrerController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BudgetController;
+use App\Http\Controllers\Customer_informationController;
+use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\Corrective_maintenanceController;
+use App\Http\Controllers\RepairController;
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\ToolController;
+use App\Http\Controllers\Mechanical_historyController;
+use App\Http\Controllers\Mechanical_reportController;
+use App\Http\Controllers\RecordController;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 use App\Livewire\Products\ProductList;
+use App\Models\Budget;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -75,6 +97,24 @@ Route::middleware('auth')->group(function () {
      //Route::resource('/students', StudentController::class);
      //Route::resource('/carrers', CarrerController::class);
     Route::resource('/staffs', StaffController::class);
+    Route::resource('/customer_informations', Customer_informationController::class);
+    Route::resource('/inventories', InventoryController::class);
+    Route::resource('/corrective_maintenances', Corrective_maintenanceController::class);
+    Route::resource('/budgets', BudgetController::class);
+    Route::resource('/repairs', RepairController::class);
+    Route::resource('/invoices', InvoiceController::class);
+    Route::resource('/tools', ToolController::class);
+    Route::resource('/mechanical_histories', Mechanical_historyController::class);
+    Route::resource('/mechanical_reports', Mechanical_reportController::class);
+    Route::resource('/records', RecordController::class);
+
+
+
+
+
+
+
+
 
     // Route::resource('/categories', CategoryController::class);
     // Route::resource('/animals', AnimalController::class);

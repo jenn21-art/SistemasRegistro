@@ -31,7 +31,7 @@ class ToolRequest extends FormRequest
             'entry_date' => 'required|date',
             'code' => ['required', 'string', 'min:5', 'max:20', Rule::unique('tools')->ignore($this->tool)],
             'who_receives' => 'required|string|min:3|max:100',
-            'inventary_id'=> 'required',
+          
 
 
 
@@ -76,7 +76,6 @@ class ToolRequest extends FormRequest
             'who_receives.min' => 'Quien recibe debe tener al menos 3 caracteres.',
             'who_receives.max' => 'Quien recibe no debe exceder los 100 caracteres.',
 
-            'inventary_id.required' => 'El nombre de inventario es requerido.',
 
         ];
     }

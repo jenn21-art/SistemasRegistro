@@ -50,7 +50,7 @@
                                   </a>
                                   <form action={{ route('customer_informations.destroy', $customer_information->id) }}" method="POST"
                                       style="display: inline-block; margin: 0; display: flex; align-items: center;"
-                                      onsubmit="return confirm('Seguro de querer eliminar este Personal? Esta accion no es reversible.')">
+                                      onsubmit="return confirm('Seguro de querer eliminar esta informacion? Esta accion no es reversible.')">
                                       @csrf
                                       @method('delete')
                                       <button type="submit" class="btn btn-danger btn-sm">

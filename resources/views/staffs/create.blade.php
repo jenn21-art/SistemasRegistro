@@ -31,7 +31,7 @@
                                    @csrf 
 
                                    {{-- Se incluye un archivo separado donde estan definidos los campos del formulario --}}
-                                   @include('Staffs.form')
+                                   @include('staffs.form')
                               </form>
                           </div>   
            </div>

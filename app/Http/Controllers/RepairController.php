@@ -32,7 +32,7 @@ class RepairController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(RepairRequest $request)
     {
         Repair::create($request->validated());
         return redirect()->route('repairs.index')->with('success', 'Reparación creada');
@@ -60,7 +60,7 @@ class RepairController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(RepairRequest $request, string $id)
     {
         $repairs = Repair::find($id);
         $repairs->update($request->validated());
